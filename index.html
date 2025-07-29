@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/2e3a421a94.js" crossorigin="anonymous"></script>
+    <title>Snake</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="./script.js" defer></script>
+</head>
+
+<body>
+    <div class="wrapper" id="wrapper">
+        <header>
+            <h1>Snake</h1>
+            <p class="instructions">Swipe or use arrow keys to get the snake some apples <i
+                    class="fa-solid fa-apple-whole food-icon icon" aria-hidden="true"></i></p>
+        </header>
+        <main>
+            <div class="stats">
+                <div class="current-stats stats">
+                    <div class="icon" id="food-icon">
+                        <p><i class="fa-solid fa-apple-whole food-icon icon"></i></p>
+                    </div>
+                    <div class="score" id="current-score"></div>
+                </div>
+                <div class="highest-stats stats">
+                    <div class="icon" id="trophy-icon">
+                        <p><i class="fa-solid fa-trophy trophy-icon icon"></i></p>
+                    </div>
+                    <div class="score" id="highest-score"></div>
+                </div>
+            </div>
+            <div id="game-board">
+            </div>
+        </main>
+        <footer>
+            <p>&copy; Beatriz Doneux</p>
+        </footer>
+    </div>
+</body>
+
+</html>

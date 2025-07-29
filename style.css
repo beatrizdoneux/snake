@@ -1,0 +1,236 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+HU:wght@100..400&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
+
+:root { 
+    --background: #f0f0f0;
+    --snake: #36AE7C;
+    --food: #EB5353;
+    --trophy: #FF8E00;
+}
+
+body {
+    font-family: "Roboto Mono", monospace;
+    text-align: center;
+    background-color: var(--background);
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.wrapper {
+    max-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+h1,
+.score {
+    font-family: "Playwrite HU", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+h1 {
+    margin: 0;
+    color: var(--snake);
+    margin-bottom: 0.4rem;
+}
+
+.instructions {
+    margin: auto;
+    padding: 0.4rem;
+}
+
+.stats {
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1;
+    max-width: 500px;
+    margin: auto;
+    margin-top: 0.4rem;
+}
+
+.stats p {
+    text-align: center;
+    margin: 0;
+}
+
+.score p {
+    text-align: left;
+    flex-grow: 1;
+}
+
+/*******************************************************************************************
+GAME BOARD
+*******************************************************************************************/
+
+#game-board {
+    /* position: relative; */
+    min-width: 200px;
+    max-width: 90vw;
+    width: 400px;
+    /* height: 400px; */
+    border: 1px solid lightgrey;
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: repeat(20, 1fr);
+    overflow: visible;
+    border-radius: 5px;
+    margin: 1rem auto;
+}
+
+/*******************************************************************************************
+ICONS
+*******************************************************************************************/
+.icon p {
+    text-align: center;
+}
+
+.trophy-icon {
+    background-color: var(--trophy);
+}
+
+
+.icon {
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/*******************************************************************************************
+FOOD
+*******************************************************************************************/
+.food-icon {
+    margin: 0;
+    background-color: var(--food);
+}
+
+.food {
+    margin: 0;
+    animation-duration: 5s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+    transform-origin: center;
+    animation-direction: alternate;
+}
+
+.food p,
+.food i {
+    margin: 0;
+}
+
+/*******************************************************************************************
+SNAKE
+*******************************************************************************************/
+.snake {
+    background-color: var(--snake);
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.head {
+    position: relative;
+}
+
+.snake.head::before,
+.snake.head::after {
+    content: "";
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.snake.head.right::before {
+    top: 60%;
+    right: 30%;
+}
+
+.snake.head.right::after {
+    top: 20%;
+    right: 30%;
+}
+
+.snake.head.left::before {
+    top: 20%;
+    left: 30%;
+}
+
+.snake.head.left::after {
+    top: 60%;
+    left: 30%;
+}
+
+.snake.head.up::before {
+    top: 30%;
+    left: 20%;
+}
+
+.snake.head.up::after {
+    top: 30%;
+    right: 20%;
+}
+
+.snake.head.down::before {
+    bottom: 30%;
+    left: 20%;
+}
+
+.snake.head.down::after {
+    bottom: 30%;
+    right: 20%;
+}
+
+.up {
+    border-radius: 8px 8px 0 0;
+}
+
+.left {
+    border-radius: 8px 0 0 8px;
+}
+
+.right {
+    border-radius: 0 8px 8px 0;
+}
+
+.down {
+    border-radius: 0 0 8px 8px;
+}
+
+.icon {
+    margin-right: 1rem;
+}
+
+.top-left {
+    border-radius: 8px 0 0 0;
+}
+
+.top-right {
+    border-radius: 0 8px 0 0;
+}
+
+.bottom-left {
+    border-radius: 0 0 0 8px;
+}
+
+.bottom-right {
+    border-radius: 0 0 8px 0;
+}
+
+@keyframes food-size {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
